@@ -17,6 +17,11 @@ shows local branches
 git branch
 ```
 
+shows all branches in specific directory
+```
+git branch --remote --list 'origin/features/*'
+```
+
 ## Checkout/Push Branches
 
 checkout branch from remote
@@ -75,4 +80,16 @@ git remote add origin git@gitlab.com:wagena/frontend-dashboard-hackday.git
 git add .
 git commit
 git push -u origin master
+```
+
+## Recover Deleted Files
+
+recover deleted file that is already commited and pushed
+```
+// get the last revision to the file (which is when it was deleted)
+git rev-list -n 1 HEAD -- codebase/classes/Account/DisbursementCheck.php
+
+// checkout the version of the file one commit earlier (before it was deleted)
+git checkout 44384a5df7d1a596bc658f4b29d0efdc5768fc76^ -- codebase/classes/Account/DisbursementCheck.php
+
 ```
