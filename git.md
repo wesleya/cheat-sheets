@@ -93,3 +93,15 @@ git rev-list -n 1 HEAD -- codebase/classes/Account/DisbursementCheck.php
 git checkout 44384a5df7d1a596bc658f4b29d0efdc5768fc76^ -- codebase/classes/Account/DisbursementCheck.php
 
 ```
+
+## Undo Commits
+
+```
+// return to the one before the current revision - effectively making our last commit undone.
+// --soft flag: this makes sure that the changes in undone revisions are preserved. After running the command, 
+// you'll find the changes as uncommitted local modifications in your working copy.
+$ git reset --soft HEAD~1
+
+// same as the above but don't keep the changes
+git reset --hard HEAD~1
+```
